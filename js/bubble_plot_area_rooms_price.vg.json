@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Minimum Property Prices vs Area vs Room Count by Countries",
+    "width": 800,
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Assignment2/main/data/min_price_by_country.csv"
+    },
+    "mark": {
+        "type": "circle",
+        "filled": true
+    },
+    "encoding": {
+        "x": {
+            "field": "rooms",
+            "type": "ordinal",
+            "title": "Number of Rooms"
+        },
+        "y": {
+            "field": "min_price_in_USD",
+            "type": "quantitative",
+            "title": "Property Price (USD)"
+            
+        },
+        "size": {
+            "field": "area",
+            "type": "quantitative",
+            "title": "Total Area (m²)"
+        },
+        "color": {
+            "field": "country",
+            "type": "nominal",
+            "title": "Country",
+            "scale": {"scheme": "rainbow"} 
+        },
+        "tooltip": [
+            {
+                "field": "country",
+                "title": "Country"
+            },
+            {
+                "field": "area",
+                "title": "Total Area (m²)"
+            },
+            {
+                "field": "min_price_in_USD",
+                "title": "Property Price (USD)"
+            }
+        ]
+    }
+}
