@@ -166,8 +166,7 @@
                 "baseline": "bottom",
                 "dx": -70,
                 "dy": -10,
-                "fontSize": 11.5,
-                "fontStyle": "italic"
+                "fontSize": 11.5
             },
             "encoding": {
                 "text": {
@@ -199,8 +198,7 @@
                 "baseline": "bottom",
                 "dx": -150,
                 "dy": 25,
-                "fontSize": 11.5,
-                "fontStyle": "italic"
+                "fontSize": 11.5
             },
             "encoding": {
                 "text": {
