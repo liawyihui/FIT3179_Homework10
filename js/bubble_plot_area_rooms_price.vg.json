@@ -5,7 +5,7 @@
         "fontSize": 20
     },
     "width": 800,
-    "height": 600,
+    "height": 400,
     "data": {
         "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Homework10/main/data/min_price_by_country.csv"
     },
@@ -15,13 +15,24 @@
             "type": "ordinal",
             "title": "Number of Rooms",
             "axis": {
-                "labelAngle": 0
+                "labelAngle": 0,
+                "tickCount": 7
             }
         },
         "y": {
             "field": "area",
             "type": "quantitative",
-            "title": "Total Area (m²)"
+            "title": "Total Area (m²)",
+            "axis": {
+                "tickCount": 10
+            },
+            "scale": {
+                "type": "log",
+                "domain": [
+                    20,
+                    120
+                ]
+            }
         }
     },
     "layer": [
