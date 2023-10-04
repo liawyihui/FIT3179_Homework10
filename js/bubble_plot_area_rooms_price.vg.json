@@ -1,10 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Comparison of Minimum Property Prices, Room Count, and Area Across Countries",
+    "title": {
+        "text": "Comparison of Minimum Property Prices, Room Count, and Area Across Countries",
+        "fontSize": 20
+    },
     "width": 800,
     "height": 600,
     "data": {
-        "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Assignment2/main/data/min_price_by_country.csv"
+        "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Homework10/main/data/min_price_by_country.csv"
     },
     "encoding": {
         "x": {
@@ -130,7 +133,7 @@
                 "opacity": {
                     "condition": [
                         {
-                            "test": "datum['country'] == 'Australia'||datum['country'] == 'United Arab Emirates'|| datum['country'] == 'Turkey'|| datum['country'] == 'Finland'|| datum['country'] == 'Russia'|| datum['country'] == 'United States'|| datum['country'] == 'Indonesia'",
+                            "test": "datum['country'] == 'Australia'||datum['country'] == 'United Arab Emirates'|| datum['country'] == 'Turkey'|| datum['country'] == 'Finland'|| datum['country'] == 'Russia'|| datum['country'] == 'United States of America'|| datum['country'] == 'Indonesia' || datum['country']== 'Thailand'",
                             "value": 1
                         }
                     ],

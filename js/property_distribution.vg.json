@@ -68,7 +68,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/liawyihui/3179/main/data/aggregated_world_data.csv"
+              "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Homework10/main/data/aggregated_world_data.csv"
             },
             "key": "country",
             "fields": [
