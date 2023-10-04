@@ -1,51 +1,193 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Minimum Property Prices vs Area vs Room Count by Countries",
+    "title": "Comparison of Minimum Property Prices, Room Count, and Area Across Countries",
     "width": 800,
-    "height": 400,
+    "height": 600,
     "data": {
         "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Assignment2/main/data/min_price_by_country.csv"
-    },
-    "mark": {
-        "type": "circle",
-        "filled": true
     },
     "encoding": {
         "x": {
             "field": "rooms",
             "type": "ordinal",
-            "title": "Number of Rooms"
+            "title": "Number of Rooms",
+            "axis": {
+                "labelAngle": 0
+            }
         },
         "y": {
-            "field": "min_price_in_USD",
-            "type": "quantitative",
-            "title": "Property Price (USD)"
-            
-        },
-        "size": {
             "field": "area",
             "type": "quantitative",
             "title": "Total Area (m²)"
-        },
-        "color": {
-            "field": "country",
-            "type": "nominal",
-            "title": "Country",
-            "scale": {"scheme": "rainbow"} 
-        },
-        "tooltip": [
-            {
-                "field": "country",
-                "title": "Country"
-            },
-            {
-                "field": "area",
-                "title": "Total Area (m²)"
-            },
-            {
-                "field": "min_price_in_USD",
-                "title": "Property Price (USD)"
+        }
+    },
+    "layer": [
+        {
+            "params": [
+                {
+                    "name": "continent_highlight",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "continent"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "size": {
+                    "field": "min_price_in_USD",
+                    "type": "quantitative",
+                    "title": "Property Price (USD)",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            50000,
+                            100000,
+                            200000,
+                            300000,
+                            400000,
+                            500000
+                        ],
+                        "range": [
+                            50,
+                            100,
+                            200,
+                            300,
+                            400,
+                            500
+                        ]
+                    },
+                    "legend": {
+                        "format": ".1s"
+                    }
+                },
+                "color": {
+                    "field": "continent",
+                    "type": "nominal",
+                    "title": "Continents",
+                    "scale": {
+                        "domain": [
+                            "North America",
+                            "Europe",
+                            "Asia",
+                            "Australia"
+                        ],
+                        "range": [
+                            "#e41a1c",
+                            "#ff7f00",
+                            "#984ea3",
+                            "#a65628"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "continent_highlight",
+                        "value": 0.6
+                    },
+                    "value": 0.2
+                },
+                "tooltip": [
+                    {
+                        "field": "country",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "area",
+                        "title": "Total Area (m²)"
+                    },
+                    {
+                        "field": "min_price_in_USD",
+                        "title": "Property Price (USD)"
+                    },
+                    {
+                        "field": "continent",
+                        "title": "Continent"
+                    }
+                ]
             }
-        ]
-    }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -15,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "field": "country",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "opacity": {
+                    "condition": [
+                        {
+                            "test": "datum['country'] == 'Australia'||datum['country'] == 'United Arab Emirates'|| datum['country'] == 'Turkey'|| datum['country'] == 'Finland'|| datum['country'] == 'Russia'|| datum['country'] == 'United States'|| datum['country'] == 'Indonesia'",
+                            "value": 1
+                        }
+                    ],
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "country",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "area",
+                        "title": "Total Area (m²)"
+                    },
+                    {
+                        "field": "min_price_in_USD",
+                        "title": "Property Price (USD)"
+                    },
+                    {
+                        "field": "continents",
+                        "title": "Continent"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "bottom",
+                "dx": -70,
+                "dy": -10,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "field": "country",
+                    "type": "nominal",
+                    "condition": [
+                        {
+                            "test": "datum['country'] == 'United Arab Emirates'",
+                            "value": "Outlier for 1 room category"
+                        }
+                    ]
+                },
+                "color": {
+                    "value": "blue"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['country'] == 'United Arab Emirates'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
+        }
+    ]
 }
