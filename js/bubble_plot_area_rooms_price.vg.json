@@ -191,6 +191,39 @@
                     "value": 0
                 }
             }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "bottom",
+                "dx": -150,
+                "dy": 25,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "field": "country",
+                    "type": "nominal",
+                    "condition": [
+                        {
+                            "test": "datum['country'] == 'Australia'",
+                            "value": "Australia has highest minimum property price among the countries"
+                        }
+                    ]
+                },
+                "color": {
+                    "value": "blue"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['country'] == 'Australia'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
         }
     ]
 }
