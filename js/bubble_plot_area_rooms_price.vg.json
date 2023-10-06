@@ -9,6 +9,24 @@
     "data": {
         "url": "https://raw.githubusercontent.com/liawyihui/FIT3179_Homework10/main/data/min_price_by_country.csv"
     },
+    "params": [
+        {
+            "name": "Property_Price",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 500000,
+                "step": 10000,
+                "name": "Minimum Property Price: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.min_price_in_USD > Property_Price"
+        }
+    ],
     "encoding": {
         "x": {
             "field": "rooms",
