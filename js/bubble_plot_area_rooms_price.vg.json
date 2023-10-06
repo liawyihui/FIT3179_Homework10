@@ -44,18 +44,6 @@
     },
     "layer": [
         {
-            "params": [
-                {
-                    "name": "continent_highlight",
-                    "select": {
-                        "type": "point",
-                        "fields": [
-                            "continent"
-                        ]
-                    },
-                    "bind": "legend"
-                }
-            ],
             "mark": "circle",
             "encoding": {
                 "size": {
@@ -104,13 +92,6 @@
                             "#a65628"
                         ]
                     }
-                },
-                "opacity": {
-                    "condition": {
-                        "param": "continent_highlight",
-                        "value": 0.6
-                    },
-                    "value": 0.2
                 },
                 "tooltip": [
                     {
