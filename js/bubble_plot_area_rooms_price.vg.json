@@ -208,8 +208,8 @@
                         {
                             "test": "datum['country'] == 'Australia'",
                             "value": [
-                                "Australia has highest property price of",
-                                "559000 USD among the countries"
+                                "Australia has the highest property price",
+                                " of 559000 USD among the countries"
                             ]
                         }
                     ]
@@ -244,8 +244,8 @@
                             "test": "datum['country'] == 'Finland'",
                             "value": [
                                 "Property with minimum price in Finland",
-                                "has highest number of rooms among the",
-                                "countries"
+                                "has the highest number of rooms among",
+                                " the countries"
                             ]
                         }
                     ]
@@ -279,8 +279,8 @@
                         {
                             "test": "datum['country'] == 'Belarus'",
                             "value": [
-                                "Belarus has lowest property price of 3000",
-                                "USD among the countries"
+                                "Belarus has the lowest property price",
+                                " of 3000 USD among the countries"
                             ]
                         }
                     ]
